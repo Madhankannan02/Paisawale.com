@@ -1,75 +1,86 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AlertCircle, ArrowRight } from 'lucide-react';
+import { Minus, Plus, ArrowRight } from 'lucide-react';
 
 const Problem = () => {
     const problems = [
-        { title: "Financial Fragmentation", label: "Complexity", desc: "Data scattered across legacy systems and incompatible applications." },
-        { title: "Strategic Blindness", label: "UI Kit", desc: "Absence of a cohesive long-term roadmap for capital preservation." },
-        { title: "Operational Friction", label: "Dashboard", desc: "Complex tax, loan, and overhead management slow down growth." },
-        { title: "Future Ambiguity", label: "Pro", desc: "Lack of clarity on retirement trajectories and wealth duration." },
-        { title: "Portfolio Opacity", label: "Components", desc: "No central visibility on true net worth or asset performance." },
-        { title: "Tax Complexity", label: "Uikit", desc: "Stress about diverse regulations and optimization opportunities." },
+        { id: "01", title: "Financial Fragmentation", label: "Too many apps", desc: "Data scattered across budgeting, investing, and tracking apps. Nothing talks to each other." },
+        { id: "02", title: "Strategic Blindness", label: "No clear plan", desc: "Absence of a cohesive long-term roadmap for savings or capital preservation." },
+        { id: "03", title: "Operational Friction", label: "Loss of control", desc: "Not knowing exactly where your money goes. Every rupee matters, but none are tracked." },
+        { id: "04", title: "Future Ambiguity", label: "Planning stress", desc: "Constant worry about taxes, loans, and future milestones without a clear trajectory." },
+        { id: "05", title: "Portfolio Opacity", label: "Flying blind", desc: "Zero visibility on true net worth or financial growth. No central point of truth." },
+        { id: "06", title: "Mental Tax", label: "Confusion", desc: "Managing money feels stressful and overwhelming. It drains your focus from what matters." },
     ];
 
     return (
-        <section id="problem" className="py-32 bg-surface">
+        <section id="problem" className="py-32 bg-white border-t border-slate-100">
             <div className="container-tight">
-                <div className="flex items-center justify-between mb-16 px-2">
-                    <div>
-                        <span className="section-label">Problem Sets</span>
-                        <h2 className="text-4xl md:text-5xl font-display font-bold text-secondary">Why complexity <span className="gradient-text italic">kills growth.</span></h2>
-                    </div>
-                    <button className="hidden md:flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
-                        View All Insights <ArrowRight size={18} />
-                    </button>
-                </div>
+                <div className="grid lg:grid-cols-12 gap-20">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {problems.map((item, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.05 }}
-                            className="card-premium p-1 flex flex-col group cursor-pointer"
-                        >
-                            <div className="aspect-[4/3] bg-slate-50 rounded-[20px] overflow-hidden mb-6 relative border border-slate-100">
-                                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 group-hover:opacity-100 opacity-0 transition-opacity" />
-                                <div className="flex items-center justify-center h-full">
-                                    <AlertCircle className="w-16 h-16 text-slate-200 group-hover:text-primary/20 transition-all duration-500 group-hover:scale-110" />
+                    {/* Left Column: Fixed Message (Sticky context) */}
+                    <div className="lg:col-span-5">
+                        <div className="sticky top-32">
+                            <span className="section-label mb-6">Financial Friction</span>
+                            <h2 className="text-4xl md:text-6xl font-display font-bold text-secondary mb-8 leading-[1.1]">
+                                Managing money shouldn’t feel <span className="gradient-text italic">stressful.</span>
+                            </h2>
+                            <p className="text-slate-500 text-lg font-medium leading-relaxed mb-10 max-w-sm">
+                                Most people today struggle with fragmented tools and total lack of clarity. We solve the structural chaos.
+                            </p>
+
+                            <div className="p-8 rounded-[32px] bg-emerald-50 border border-emerald-100">
+                                <div className="flex items-center gap-3 text-primary font-bold mb-4">
+                                    <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">
+                                        <Plus size={18} />
+                                    </div>
+                                    <span>The Paisawale Solution</span>
                                 </div>
-                                <div className="absolute top-4 right-4 badge badge-indigo bg-white/80 backdrop-blur-md opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">
-                                    Detail View
-                                </div>
+                                <h3 className="text-xl font-bold text-secondary mb-2 whitespace-nowrap">Total clarity.</h3>
+                                <p className="text-sm text-slate-500">Everything brought into one powerful, unified platform.</p>
                             </div>
-
-                            <div className="px-6 pb-6">
-                                <div className="flex items-center gap-2 mb-3">
-                                    <span className="badge badge-indigo">{item.label}</span>
-                                    <span className="w-1 h-1 bg-slate-200 rounded-full" />
-                                    <span className="text-[10px] uppercase font-bold text-slate-400">Paisa.v4</span>
-                                </div>
-                                <h3 className="text-2xl font-display font-bold text-secondary mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
-                                <p className="text-slate-500 text-sm leading-relaxed line-clamp-2">{item.desc}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Mid-page banner style */}
-                <div className="mt-32 relative rounded-[40px] overflow-hidden bg-slate-900 p-12 lg:p-24 text-center">
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-teal-600/20" />
-                    <div className="relative z-10 max-w-2xl mx-auto">
-                        <span className="text-emerald-400 font-bold tracking-[0.3em] uppercase text-xs mb-8 block">Member Exclusive</span>
-                        <h3 className="text-3xl md:text-5xl font-display font-bold text-white mb-10 leading-tight">
-                            Unlock the full potential of your <span className="text-emerald-400 italic">financial future.</span>
-                        </h3>
-                        <button className="btn-primary mx-auto">
-                            Join the Membership <ArrowRight size={20} />
-                        </button>
+                        </div>
                     </div>
+
+                    {/* Right Column: Problem Index (Non-card layout) */}
+                    <div className="lg:col-span-7 space-y-0 text-left">
+                        {problems.map((problem, idx) => (
+                            <motion.div
+                                key={problem.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="group border-b border-slate-100 py-10 first:pt-0"
+                            >
+                                <div className="flex items-start gap-8">
+                                    <div className="text-sm font-bold font-mono text-emerald-300 transition-colors group-hover:text-primary pt-1">
+                                        {problem.id}
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <h4 className="text-2xl md:text-3xl font-display font-bold text-secondary group-hover:text-primary transition-colors">
+                                                {problem.title}
+                                            </h4>
+                                            <span className="badge badge-indigo group-hover:bg-primary group-hover:text-white transition-all">
+                                                {problem.label}
+                                            </span>
+                                        </div>
+                                        <p className="text-slate-500 text-lg font-medium leading-relaxed max-w-xl group-hover:text-slate-700 transition-colors">
+                                            {problem.desc}
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+
+                        {/* <div className="pt-20">
+                            <button className="btn-primary px-10 py-6 text-lg w-full md:w-auto">
+                                Experience Simple Finance <ArrowRight size={20} />
+                            </button>
+                        </div> */}
+                    </div>
+
                 </div>
             </div>
         </section>
