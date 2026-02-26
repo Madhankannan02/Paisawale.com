@@ -1,123 +1,75 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AlertCircle, XCircle, ShieldCheck } from 'lucide-react';
+import { AlertCircle, ArrowRight } from 'lucide-react';
 
 const Problem = () => {
     const problems = [
-        "Not knowing where their money goes",
-        "No clear savings or investment plan",
-        "Too many apps for budgeting, investing, and tracking",
-        "No visibility on net worth or financial growth",
-        "Stress about taxes, loans, and future planning"
+        { title: "Financial Fragmentation", label: "Complexity", desc: "Data scattered across legacy systems and incompatible applications." },
+        { title: "Strategic Blindness", label: "UI Kit", desc: "Absence of a cohesive long-term roadmap for capital preservation." },
+        { title: "Operational Friction", label: "Dashboard", desc: "Complex tax, loan, and overhead management slow down growth." },
+        { title: "Future Ambiguity", label: "Pro", desc: "Lack of clarity on retirement trajectories and wealth duration." },
+        { title: "Portfolio Opacity", label: "Components", desc: "No central visibility on true net worth or asset performance." },
+        { title: "Tax Complexity", label: "Uikit", desc: "Stress about diverse regulations and optimization opportunities." },
     ];
 
     return (
-        <section className="py-24 bg-slate-50 relative overflow-hidden">
-            <div className="container mx-auto px-6">
-                <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <section id="problem" className="py-32 bg-surface">
+            <div className="container-tight">
+                <div className="flex items-center justify-between mb-16 px-2">
                     <div>
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-red-100 text-red-600 text-xs font-black uppercase tracking-widest mb-6"
-                        >
-                            <AlertCircle className="w-4 h-4" />
-                            The Financial Struggle
-                        </motion.div>
-
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-4xl md:text-6xl font-black mb-8 leading-tight text-secondary"
-                        >
-                            Managing money shouldn’t feel <span className="text-red-500 underline decoration-red-200 decoration-8 underline-offset-8">stressful.</span>
-                        </motion.h2>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-slate-600 text-xl mb-12 leading-relaxed"
-                        >
-                            Fragmented data leads to poor decisions. Paisawale simplifies your financial life into a single, unified view.
-                        </motion.p>
-
-                        <div className="space-y-4">
-                            {problems.map((problem, idx) => (
-                                <motion.div
-                                    key={idx}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.1 }}
-                                    className="flex items-center gap-5 p-5 bg-white rounded-2xl border border-slate-100 hover:border-red-200 transition-all group"
-                                >
-                                    <div className="p-2 bg-red-50 rounded-full group-hover:bg-red-100 transition-colors">
-                                        <XCircle className="w-5 h-5 text-red-500 shrink-0" />
-                                    </div>
-                                    <span className="text-slate-800 font-bold">{problem}</span>
-                                </motion.div>
-                            ))}
-                        </div>
+                        <span className="section-label">Problem Sets</span>
+                        <h2 className="text-4xl md:text-5xl font-display font-bold text-secondary">Why complexity <span className="gradient-text italic">kills growth.</span></h2>
                     </div>
+                    <button className="hidden md:flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
+                        View All Insights <ArrowRight size={18} />
+                    </button>
+                </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="relative"
-                    >
-                        {/* Visual representation of confusion */}
-                        <div className="relative z-10 p-10 bg-white rounded-[60px] border border-slate-200 shadow-2xl overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500" />
-
-                            <div className="space-y-8">
-                                <div className="flex justify-between items-center">
-                                    <div className="h-4 w-32 bg-slate-100 rounded-full" />
-                                    <div className="h-10 w-10 bg-slate-50 rounded-xl" />
-                                </div>
-
-                                <div className="space-y-6">
-                                    <div className="h-48 w-full bg-slate-50 rounded-[32px] border border-dashed border-slate-300 flex flex-col items-center justify-center gap-4">
-                                        <div className="p-4 bg-white rounded-full shadow-sm">
-                                            <AlertCircle className="w-8 h-8 text-slate-300" />
-                                        </div>
-                                        <div className="text-slate-400 text-sm font-black uppercase tracking-widest text-center">
-                                            Missing Visibility <br />
-                                            <span className="font-normal normal-case text-xs">Fragmented across 5+ apps</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-3 gap-5">
-                                        <div className="h-24 bg-red-50/50 border border-red-100 rounded-[24px]" />
-                                        <div className="h-24 bg-orange-50/50 border border-orange-100 rounded-[24px]" />
-                                        <div className="h-24 bg-blue-50/50 border border-blue-100 rounded-[24px]" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Solution Overlay */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {problems.map((item, idx) => (
                         <motion.div
-                            initial={{ opacity: 0, y: 40, x: 20 }}
-                            whileInView={{ opacity: 1, y: 0, x: 0 }}
+                            key={idx}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.5, type: 'spring' }}
-                            className="absolute -bottom-8 -right-8 z-20 p-8 bg-white rounded-[40px] border-2 border-emerald-500 shadow-2xl max-w-[320px]"
+                            transition={{ delay: idx * 0.05 }}
+                            className="card-premium p-1 flex flex-col group cursor-pointer"
                         >
-                            <div className="flex items-center gap-4 mb-4 text-emerald-600">
-                                <div className="p-3 bg-emerald-100 rounded-2xl">
-                                    <ShieldCheck className="w-6 h-6" />
+                            <div className="aspect-[4/3] bg-slate-50 rounded-[20px] overflow-hidden mb-6 relative border border-slate-100">
+                                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 group-hover:opacity-100 opacity-0 transition-opacity" />
+                                <div className="flex items-center justify-center h-full">
+                                    <AlertCircle className="w-16 h-16 text-slate-200 group-hover:text-primary/20 transition-all duration-500 group-hover:scale-110" />
                                 </div>
-                                <span className="font-black text-xl">The Solution</span>
+                                <div className="absolute top-4 right-4 badge badge-indigo bg-white/80 backdrop-blur-md opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">
+                                    Detail View
+                                </div>
                             </div>
-                            <p className="text-slate-600 font-medium leading-relaxed italic">
-                                "One dashboard. Total financial clarity. That's the Paisawale promise."
-                            </p>
+
+                            <div className="px-6 pb-6">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <span className="badge badge-indigo">{item.label}</span>
+                                    <span className="w-1 h-1 bg-slate-200 rounded-full" />
+                                    <span className="text-[10px] uppercase font-bold text-slate-400">Paisa.v4</span>
+                                </div>
+                                <h3 className="text-2xl font-display font-bold text-secondary mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
+                                <p className="text-slate-500 text-sm leading-relaxed line-clamp-2">{item.desc}</p>
+                            </div>
                         </motion.div>
-                    </motion.div>
+                    ))}
+                </div>
+
+                {/* Mid-page banner style */}
+                <div className="mt-32 relative rounded-[40px] overflow-hidden bg-slate-900 p-12 lg:p-24 text-center">
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-teal-600/20" />
+                    <div className="relative z-10 max-w-2xl mx-auto">
+                        <span className="text-emerald-400 font-bold tracking-[0.3em] uppercase text-xs mb-8 block">Member Exclusive</span>
+                        <h3 className="text-3xl md:text-5xl font-display font-bold text-white mb-10 leading-tight">
+                            Unlock the full potential of your <span className="text-emerald-400 italic">financial future.</span>
+                        </h3>
+                        <button className="btn-primary mx-auto">
+                            Join the Membership <ArrowRight size={20} />
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>

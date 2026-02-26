@@ -1,172 +1,135 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-    BarChart3, Wallet, LineChart, CreditCard, Receipt,
-    ChevronRight, Sparkles, Target, History, Landmark, PieChart
-} from 'lucide-react';
+import { Check, ArrowRight, Layout, PieChart, Shield, Landmark, Calculator } from 'lucide-react';
 
 const Features = () => {
     const featureGroups = [
         {
-            id: 'dashboard',
-            icon: <BarChart3 className="w-5 h-5" />,
+            id: "01",
             title: "Smart Financial Dashboard",
-            items: [
-                "See all your finances in one place",
-                "Track income, expenses, savings & investments",
-                "Real-time net worth tracking",
-                "Visual financial insights",
-                "Monthly financial health score"
-            ]
+            label: "Uikit",
+            icon: Layout,
+            items: ["Global Net Worth Sync", "Real-time Asset Audit", "Integrated Yield Analysis", "Portfolio Health Scoring"]
         },
         {
-            id: 'budget',
-            icon: <Wallet className="w-5 h-5" />,
-            title: "Budget & Expense Management",
-            items: [
-                "Smart monthly budget planner",
-                "Automatic expense categorization",
-                "Daily spending tracker",
-                "Subscription tracker",
-                "Bill & payment reminders",
-                "Savings goal planner"
-            ]
-        },
-        {
-            id: 'wealth',
-            icon: <LineChart className="w-5 h-5" />,
+            id: "02",
             title: "Wealth & Investment Tools",
-            items: [
-                "Net worth tracker",
-                "Investment tracker",
-                "Portfolio growth insights",
-                "Compound growth tools",
-                "Retirement planner",
-                "Passive income calculator",
-                "FIRE (financial freedom) planner"
-            ]
+            label: "Dashboard",
+            icon: PieChart,
+            items: ["Capital Allocation Tools", "Compound Growth Projection", "Retirement Modeling", "FIRE Trajectory Sync"]
         },
         {
-            id: 'debt',
-            icon: <CreditCard className="w-5 h-5" />,
-            title: "Debt & Loan Management",
-            items: [
-                "EMI calculator",
-                "Debt payoff planner",
-                "Loan comparison tools",
-                "Credit card payoff strategy",
-                "Interest savings calculator"
-            ]
+            id: "03",
+            title: "Security & Vault",
+            label: "Pro",
+            icon: Shield,
+            items: ["AES-256 Encryption", "Biometric Authentication", "Private Data Architecture", "Zero-Knowledge Storage"]
         },
         {
-            id: 'tax',
-            icon: <Receipt className="w-5 h-5" />,
-            title: "Tax & Income Tools",
-            items: [
-                "Income tax calculator",
-                "Salary take-home calculator",
-                "Tax optimization suggestions",
-                "Capital gains calculator",
-                "Freelance income estimator"
-            ]
+            id: "04",
+            title: "Debt Architecture",
+            label: "System",
+            icon: Landmark,
+            items: ["Loan Comparison Studio", "Interest Optimization", "EMI Payoff Planning", "Credit Stratification"]
+        },
+        {
+            id: "05",
+            title: "Tax Optimization",
+            label: "Core",
+            icon: Calculator,
+            items: ["Capital Gains Audit", "Salary Net Calculation", "Optimization Proposals", "Freelance Estimation"]
         }
     ];
 
-    const [activeGroup, setActiveGroup] = useState(featureGroups[0]);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <section id="features" className="py-32 bg-slate-50 relative overflow-hidden">
-            {/* Background Decor - Soft radial gradients */}
-            <div className="absolute top-1/2 left-1/2 -z-10 w-[1000px] h-[1000px] bg-emerald-50/50 blur-[150px] rounded-full -translate-x-1/2 -translate-y-1/2" />
-
-            <div className="container mx-auto px-6">
-                <div className="flex flex-col items-center text-center mb-20">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="p-4 bg-emerald-100/50 rounded-[20px] text-primary mb-8 shadow-sm border border-emerald-100"
-                    >
-                        <Sparkles className="w-8 h-8" />
-                    </motion.div>
-                    <h2 className="text-4xl md:text-7xl font-black mb-8 text-secondary">Core Features</h2>
-                    <p className="text-slate-600 text-xl max-w-2xl font-medium">
-                        A comprehensive suite of tools built to give you total control over every aspect of your financial world.
+        <section id="features" className="py-32 bg-surface">
+            <div className="container-tight">
+                <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-20 px-2">
+                    <span className="section-label">Core Capabilities</span>
+                    <h2 className="text-4xl md:text-6xl font-display font-bold text-secondary mb-8 leading-tight">
+                        A comprehensive suite of tools built for <span className="gradient-text italic">total control.</span>
+                    </h2>
+                    <p className="text-slate-500 font-medium leading-relaxed">
+                        Every module is designed with precision to provide the most accurate and actionable financial intelligence available.
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-12 gap-10">
-                    {/* Navigation */}
-                    <div className="lg:col-span-4 space-y-4">
-                        {featureGroups.map((group) => (
+                <div className="grid lg:grid-cols-12 gap-8 items-start">
+                    {/* Index Selector */}
+                    <div className="lg:col-span-12 xl:col-span-4 space-y-4 order-2 xl:order-1">
+                        {featureGroups.map((group, idx) => (
                             <button
                                 key={group.id}
-                                onClick={() => setActiveGroup(group)}
-                                className={`w-full flex items-center gap-5 p-6 rounded-[32px] transition-all text-left border-2 ${activeGroup.id === group.id
-                                        ? 'bg-white border-primary shadow-2xl shadow-emerald-100 scale-[1.02]'
+                                onClick={() => setActiveIndex(idx)}
+                                className={`w-full text-left p-6 rounded-[24px] group transition-all duration-500 border relative overflow-hidden ${activeIndex === idx
+                                        ? 'bg-white border-emerald-200 shadow-xl shadow-emerald-100 flex-1'
                                         : 'bg-transparent border-transparent hover:bg-white/50 hover:border-slate-200'
                                     }`}
                             >
-                                <div className={`p-4 rounded-2xl transition-all shadow-sm ${activeGroup.id === group.id ? 'bg-primary text-white scale-110' : 'bg-white text-slate-400'
-                                    }`}>
-                                    {group.icon}
+                                {activeIndex === idx && (
+                                    <motion.div layoutId="active-bg" className="absolute left-1 top-1 bottom-1 w-1 bg-primary rounded-full" />
+                                )}
+                                <div className="flex items-center gap-5">
+                                    <div className={`p-3 rounded-xl transition-colors ${activeIndex === idx ? 'bg-emerald-50 text-primary' : 'bg-slate-100 text-slate-400 group-hover:bg-slate-200 group-hover:text-slate-600'}`}>
+                                        <group.icon size={20} />
+                                    </div>
+                                    <div>
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <span className={`text-[10px] font-bold uppercase transition-colors ${activeIndex === idx ? 'text-primary' : 'text-slate-400'}`}>Module {group.id}</span>
+                                            <span className="badge badge-indigo text-[8px] py-0">{group.label}</span>
+                                        </div>
+                                        <h4 className={`text-lg font-display font-bold transition-colors ${activeIndex === idx ? 'text-secondary' : 'text-slate-500 group-hover:text-secondary'}`}>
+                                            {group.title}
+                                        </h4>
+                                    </div>
                                 </div>
-                                <span className={`font-black text-lg transition-colors ${activeGroup.id === group.id ? 'text-secondary' : 'text-slate-500'
-                                    }`}>
-                                    {group.title}
-                                </span>
-                                <ChevronRight className={`ml-auto w-6 h-6 transition-transform ${activeGroup.id === group.id ? 'translate-x-1 text-primary' : 'text-slate-300'
-                                    }`} />
                             </button>
                         ))}
                     </div>
 
-                    {/* Details Content */}
-                    <div className="lg:col-span-8">
+                    {/* Feature Details Content */}
+                    <div className="lg:col-span-12 xl:col-span-8 order-1 xl:order-2">
                         <AnimatePresence mode="wait">
                             <motion.div
-                                key={activeGroup.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -30 }}
-                                transition={{ duration: 0.4, type: 'spring' }}
-                                className="bg-white rounded-[50px] p-10 md:p-16 h-full flex flex-col border border-slate-100 shadow-2xl shadow-slate-200/50"
+                                key={activeIndex}
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -20 }}
+                                transition={{ duration: 0.4 }}
+                                className="bg-white rounded-[40px] border border-slate-100 shadow-2xl overflow-hidden p-8 md:p-14"
                             >
-                                <div className="flex items-center gap-6 mb-12">
-                                    <div className="p-5 bg-emerald-50 rounded-[24px] text-primary shadow-sm border border-emerald-100">
-                                        {activeGroup.icon}
+                                <div className="grid md:grid-cols-2 gap-12">
+                                    <div>
+                                        <div className="badge badge-indigo mb-6">Active Module</div>
+                                        <h3 className="text-3xl md:text-4xl font-display font-bold text-secondary mb-8">{featureGroups[activeIndex].title}</h3>
+                                        <p className="text-slate-500 font-medium leading-relaxed mb-10">
+                                            Access military-grade financial intelligence tools that simplify complex decisions and drive confident wealth growth strategies.
+                                        </p>
+                                        <button className="btn-primary">
+                                            Explore This Module <ArrowRight size={18} />
+                                        </button>
                                     </div>
-                                    <h3 className="text-4xl font-black text-secondary">{activeGroup.title}</h3>
+
+                                    <div className="space-y-6">
+                                        <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Specifications:</div>
+                                        {featureGroups[activeIndex].items.map((item, i) => (
+                                            <div key={i} className="flex items-center gap-4 group p-4 bg-slate-50 rounded-2xl hover:bg-emerald-50 transition-colors">
+                                                <div className="p-1 bg-white rounded-lg shadow-sm group-hover:text-primary transition-colors">
+                                                    <Check size={16} />
+                                                </div>
+                                                <span className="text-slate-700 font-bold tracking-tight">{item}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
 
-                                <div className="grid md:grid-cols-2 gap-8 flex-grow">
-                                    {activeGroup.items.map((item, idx) => (
-                                        <motion.div
-                                            key={idx}
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: idx * 0.05 }}
-                                            className="flex items-center gap-5 p-6 rounded-[28px] bg-slate-50 border border-slate-100 hover:bg-emerald-50/30 hover:border-emerald-100 transition-all group"
-                                        >
-                                            <div className="h-3 w-3 rounded-full bg-emerald-200 group-hover:bg-primary transition-colors shadow-sm" />
-                                            <span className="text-slate-700 font-bold text-lg">{item}</span>
-                                        </motion.div>
-                                    ))}
-                                </div>
-
-                                <div className="mt-16 p-10 bg-gradient-to-br from-secondary to-slate-800 rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
-                                    <div className="flex items-center gap-6 text-left">
-                                        <div className="w-16 h-16 rounded-[24px] bg-white/10 flex items-center justify-center text-primary backdrop-blur-md">
-                                            <Target className="w-8 h-8" />
-                                        </div>
-                                        <div>
-                                            <div className="text-white font-black text-2xl tracking-tight">Set Your First Goal</div>
-                                            <div className="text-slate-300 font-medium italic text-lg opacity-80">Start your journey to financial freedom today.</div>
-                                        </div>
-                                    </div>
-                                    <button className="px-10 py-5 bg-primary hover:bg-primary-dark text-white rounded-2xl font-black text-xl hover:shadow-2xl hover:shadow-primary/30 transition-all active:scale-95">
-                                        Get Started Free
-                                    </button>
+                                {/* Visual Mockup Area */}
+                                <div className="mt-14 h-48 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-[28px] border border-emerald-100 flex items-center justify-center relative overflow-hidden group">
+                                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:24px_24px]" />
+                                    <div className="text-emerald-200 uppercase font-display font-black text-6xl tracking-[0.2em] transform -rotate-3 group-hover:scale-110 transition-transform duration-700">PAISAWALE</div>
+                                    <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent opacity-50" />
                                 </div>
                             </motion.div>
                         </AnimatePresence>

@@ -1,57 +1,76 @@
 import React from 'react';
-import { Wallet, Twitter, Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Twitter, Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import logo from '../assets/logo.svg';
 
 const Footer = () => {
     return (
-        <footer className="pt-32 pb-16 bg-white border-t border-slate-100">
-            <div className="container mx-auto px-6">
-                <div className="grid md:grid-cols-4 gap-16 mb-24">
-                    <div className="col-span-2">
-                        <div className="flex items-center gap-3 mb-8">
-                            <div className="p-3 bg-primary rounded-2xl shadow-lg shadow-primary/20">
-                                <Wallet className="w-6 h-6 text-white" />
-                            </div>
-                            <span className="text-3xl font-black tracking-tighter text-secondary">
-                                Paisa<span className="text-primary italic">wale</span>
-                            </span>
+        <footer id="footer" className="bg-white pt-32 pb-12 border-t border-slate-100">
+            <div className="container-tight">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-12 lg:gap-8 mb-24">
+
+                    {/* Brand Column */}
+                    <div className="col-span-12 lg:col-span-4 space-y-8">
+                        <div className="flex items-center group cursor-pointer">
+                            <img src={logo} className="h-10 w-auto transition-transform duration-500 group-hover:scale-105" alt="Paisawale Logo" />
                         </div>
-                        <p className="text-slate-600 font-medium max-w-sm mb-10 leading-relaxed text-lg">
-                            Your complete personal finance operating system. Track, plan, grow, and optimize your money with ease and transparency.
+                        <p className="text-slate-500 font-medium max-w-sm leading-relaxed">
+                            The world's most advanced personal finance operating system for individuals who demand clarity, privacy, and growth.
                         </p>
                         <div className="flex gap-4">
                             {[Twitter, Github, Linkedin, Mail].map((Icon, idx) => (
-                                <a key={idx} href="#" className="p-4 bg-slate-50 rounded-2xl text-slate-400 hover:text-primary hover:bg-emerald-50 hover:shadow-lg transition-all border border-slate-100">
-                                    <Icon className="w-6 h-6" />
+                                <a key={idx} href="#" className="p-3 bg-slate-50 text-slate-400 hover:text-primary hover:bg-emerald-50 rounded-xl transition-all border border-slate-100">
+                                    <Icon size={20} />
                                 </a>
                             ))}
                         </div>
                     </div>
 
-                    <div>
-                        <h4 className="text-secondary font-black text-xl mb-8">Platform</h4>
-                        <ul className="space-y-5">
-                            {['Features', 'Marketplace', 'Wealth Management', 'Security'].map(item => (
-                                <li key={item}><a href="#" className="text-slate-600 font-bold hover:text-primary transition-colors text-lg">{item}</a></li>
+                    {/* Links Columns */}
+                    <div className="col-span-1 lg:col-span-2 space-y-8">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-secondary">Product</h4>
+                        <ul className="space-y-4">
+                            {['Features', 'Marketplace', 'Wealth Plan', 'Security', 'Pricing'].map(item => (
+                                <li key={item}><a href="#" className="text-slate-500 hover:text-primary transition-colors font-medium text-sm flex items-center group">{item} <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition-opacity" size={12} /></a></li>
                             ))}
                         </ul>
                     </div>
 
-                    <div>
-                        <h4 className="text-secondary font-black text-xl mb-8">Company</h4>
-                        <ul className="space-y-5">
-                            {['About Us', 'Contact', 'Privacy Policy', 'Terms of Service'].map(item => (
-                                <li key={item}><a href="#" className="text-slate-600 font-bold hover:text-primary transition-colors text-lg">{item}</a></li>
+                    <div className="col-span-1 lg:col-span-2 space-y-8">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-secondary">Resources</h4>
+                        <ul className="space-y-4">
+                            {['Documentation', 'Components', 'UI Kits', 'Templates', 'Release Notes'].map(item => (
+                                <li key={item}><a href="#" className="text-slate-500 hover:text-primary transition-colors font-medium text-sm flex items-center group">{item} <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition-opacity" size={12} /></a></li>
                             ))}
                         </ul>
                     </div>
+
+                    <div className="col-span-1 lg:col-span-2 space-y-8">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-secondary">Community</h4>
+                        <ul className="space-y-4">
+                            {['Dribbble', 'Behance', 'Twitter', 'Instagram', 'Discord'].map(item => (
+                                <li key={item}><a href="#" className="text-slate-500 hover:text-primary transition-colors font-medium text-sm flex items-center group">{item} <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition-opacity" size={12} /></a></li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="col-span-1 lg:col-span-2 space-y-8">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-secondary">Company</h4>
+                        <ul className="space-y-4">
+                            {['About Paisawale', 'Contact Us', 'Privacy Policy', 'Terms of Use', 'Affiliates'].map(item => (
+                                <li key={item}><a href="#" className="text-slate-500 hover:text-primary transition-colors font-medium text-sm flex items-center group">{item} <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition-opacity" size={12} /></a></li>
+                            ))}
+                        </ul>
+                    </div>
+
                 </div>
 
-                <div className="pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8">
-                    <p className="text-slate-400 font-bold text-sm tracking-widest uppercase">
-                        © 2026 Paisawale.com. All rights reserved.
+                <div className="pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[0.2em]">
+                        © 2026 PAISAWALE.COM — MADE WITH PRECISION BY FINANCIAL ARCHITECTS
                     </p>
-                    <div className="flex items-center gap-2 text-slate-500 font-black text-sm uppercase tracking-widest">
-                        Made with <Heart className="w-5 h-5 text-red-500 fill-red-500" /> by Financial Lovers
+                    <div className="flex gap-8">
+                        <a href="#" className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 hover:text-primary transition-colors">PRIVACY POLICY</a>
+                        <a href="#" className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 hover:text-primary transition-colors">TERMS OF USE</a>
                     </div>
                 </div>
             </div>
