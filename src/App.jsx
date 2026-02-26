@@ -8,39 +8,54 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="bg-dark min-h-screen text-white selection:bg-primary/30 selection:text-primary">
+    <div className="bg-white min-h-screen text-secondary selection:bg-primary/20 selection:text-primary">
       <Navbar />
       <main>
         <Hero />
+        <div className="w-full h-px bg-slate-100" />
         <Problem />
         <About />
         <Features />
 
         {/* Final CTA Section */}
-        <section className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/5 -z-10" />
-          <div className="container mx-auto px-6">
-            <div className="glass-card rounded-[50px] p-12 md:p-20 text-center border-primary/20 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+        <section className="py-32 relative overflow-hidden bg-white">
+          {/* Background Mesh */}
+          <div className="absolute top-1/2 left-1/2 -z-10 w-[800px] h-[800px] bg-indigo-50/50 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2" />
 
-              <h2 className="text-4xl md:text-6xl font-black mb-8">Ready to master your <span className="gradient-text">financial life?</span></h2>
-              <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
+          <div className="container mx-auto px-6">
+            <div className="bg-slate-50 rounded-[80px] p-16 md:p-24 text-center border-2 border-white shadow-2xl relative overflow-hidden">
+              {/* Decorative top bar */}
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-primary to-transparent" />
+
+              <h2 className="text-4xl md:text-7xl font-black mb-10 text-secondary leading-tight">Ready to master your <span className="gradient-text">financial life?</span></h2>
+              <p className="text-xl md:text-2xl text-slate-600 mb-16 max-w-3xl mx-auto font-medium">
                 Join thousands of people who have already transformed their relationship with money using Paisawale.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <button className="px-10 py-5 bg-primary hover:bg-primary/90 text-white rounded-2xl font-black text-xl transition-all shadow-2xl shadow-primary/20 glow-primary border-b-4 border-primary-dark">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+                <button className="px-12 py-6 bg-primary hover:bg-primary-dark text-white rounded-[24px] font-black text-2xl transition-all shadow-2xl shadow-primary/30 hover:shadow-primary/50 active:scale-95 border-b-[6px] border-emerald-800">
                   Start Free Now
                 </button>
-                <button className="px-10 py-5 glass hover:bg-white/5 text-white rounded-2xl font-bold text-xl transition-all border border-white/10">
-                  Talk to an Advisor
+                <button className="px-12 py-6 bg-white hover:bg-slate-100 text-secondary rounded-[24px] font-black text-2xl transition-all border-2 border-slate-200 shadow-sm hover:shadow-lg">
+                  Explore Tools
                 </button>
               </div>
 
-              <div className="mt-12 flex items-center justify-center gap-8 grayscale opacity-50">
-                <span className="font-bold tracking-tighter">SECURE</span>
-                <span className="font-bold tracking-tighter">PRIVATE</span>
-                <span className="font-bold tracking-tighter">TRUSTED</span>
+              <div className="mt-20 flex flex-wrap items-center justify-center gap-12 grayscale opacity-40">
+                <div className="flex flex-col items-center">
+                  <span className="font-black text-2xl tracking-tighter">AES-256</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Encryption</span>
+                </div>
+                <div className="w-px h-10 bg-slate-300 hidden md:block" />
+                <div className="flex flex-col items-center">
+                  <span className="font-black text-2xl tracking-tighter">PRIVACY</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">First Design</span>
+                </div>
+                <div className="w-px h-10 bg-slate-300 hidden md:block" />
+                <div className="flex flex-col items-center">
+                  <span className="font-black text-2xl tracking-tighter">100% SECURE</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Cloud Data</span>
+                </div>
               </div>
             </div>
           </div>

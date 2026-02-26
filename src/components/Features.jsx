@@ -75,47 +75,47 @@ const Features = () => {
     const [activeGroup, setActiveGroup] = useState(featureGroups[0]);
 
     return (
-        <section id="features" className="py-24 bg-slate-950 relative overflow-hidden">
-            {/* Background Decor */}
-            <div className="absolute top-1/2 left-1/2 -z-10 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full -translate-x-1/2 -translate-y-1/2" />
+        <section id="features" className="py-32 bg-slate-50 relative overflow-hidden">
+            {/* Background Decor - Soft radial gradients */}
+            <div className="absolute top-1/2 left-1/2 -z-10 w-[1000px] h-[1000px] bg-emerald-50/50 blur-[150px] rounded-full -translate-x-1/2 -translate-y-1/2" />
 
             <div className="container mx-auto px-6">
-                <div className="flex flex-col items-center text-center mb-16">
+                <div className="flex flex-col items-center text-center mb-20">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="p-3 bg-primary/10 rounded-2xl text-primary mb-6"
+                        className="p-4 bg-emerald-100/50 rounded-[20px] text-primary mb-8 shadow-sm border border-emerald-100"
                     >
-                        <Sparkles className="w-6 h-6" />
+                        <Sparkles className="w-8 h-8" />
                     </motion.div>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">Core Features</h2>
-                    <p className="text-slate-400 text-lg max-w-2xl">
+                    <h2 className="text-4xl md:text-7xl font-black mb-8 text-secondary">Core Features</h2>
+                    <p className="text-slate-600 text-xl max-w-2xl font-medium">
                         A comprehensive suite of tools built to give you total control over every aspect of your financial world.
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-12 gap-12">
+                <div className="grid lg:grid-cols-12 gap-10">
                     {/* Navigation */}
-                    <div className="lg:col-span-4 space-y-3">
+                    <div className="lg:col-span-4 space-y-4">
                         {featureGroups.map((group) => (
                             <button
                                 key={group.id}
                                 onClick={() => setActiveGroup(group)}
-                                className={`w-full flex items-center gap-4 p-5 rounded-3xl transition-all text-left border ${activeGroup.id === group.id
-                                        ? 'bg-primary/10 border-primary shadow-lg shadow-primary/5'
-                                        : 'bg-transparent border-white/5 hover:bg-white/5'
+                                className={`w-full flex items-center gap-5 p-6 rounded-[32px] transition-all text-left border-2 ${activeGroup.id === group.id
+                                        ? 'bg-white border-primary shadow-2xl shadow-emerald-100 scale-[1.02]'
+                                        : 'bg-transparent border-transparent hover:bg-white/50 hover:border-slate-200'
                                     }`}
                             >
-                                <div className={`p-3 rounded-xl transition-colors ${activeGroup.id === group.id ? 'bg-primary text-white' : 'bg-slate-900 text-slate-400'
+                                <div className={`p-4 rounded-2xl transition-all shadow-sm ${activeGroup.id === group.id ? 'bg-primary text-white scale-110' : 'bg-white text-slate-400'
                                     }`}>
                                     {group.icon}
                                 </div>
-                                <span className={`font-bold transition-colors ${activeGroup.id === group.id ? 'text-white' : 'text-slate-500'
+                                <span className={`font-black text-lg transition-colors ${activeGroup.id === group.id ? 'text-secondary' : 'text-slate-500'
                                     }`}>
                                     {group.title}
                                 </span>
-                                <ChevronRight className={`ml-auto w-5 h-5 transition-transform ${activeGroup.id === group.id ? 'translate-x-1 text-primary' : 'text-slate-700'
+                                <ChevronRight className={`ml-auto w-6 h-6 transition-transform ${activeGroup.id === group.id ? 'translate-x-1 text-primary' : 'text-slate-300'
                                     }`} />
                             </button>
                         ))}
@@ -126,46 +126,46 @@ const Features = () => {
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeGroup.id}
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -20 }}
-                                transition={{ duration: 0.3 }}
-                                className="glass-card rounded-[40px] p-8 md:p-12 h-full flex flex-col"
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -30 }}
+                                transition={{ duration: 0.4, type: 'spring' }}
+                                className="bg-white rounded-[50px] p-10 md:p-16 h-full flex flex-col border border-slate-100 shadow-2xl shadow-slate-200/50"
                             >
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="p-4 bg-primary/20 rounded-2xl text-primary">
+                                <div className="flex items-center gap-6 mb-12">
+                                    <div className="p-5 bg-emerald-50 rounded-[24px] text-primary shadow-sm border border-emerald-100">
                                         {activeGroup.icon}
                                     </div>
-                                    <h3 className="text-3xl font-bold text-white">{activeGroup.title}</h3>
+                                    <h3 className="text-4xl font-black text-secondary">{activeGroup.title}</h3>
                                 </div>
 
-                                <div className="grid md:grid-cols-2 gap-6 flex-grow">
+                                <div className="grid md:grid-cols-2 gap-8 flex-grow">
                                     {activeGroup.items.map((item, idx) => (
                                         <motion.div
                                             key={idx}
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
+                                            initial={{ opacity: 0, x: 20 }}
+                                            animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: idx * 0.05 }}
-                                            className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 transition-colors group"
+                                            className="flex items-center gap-5 p-6 rounded-[28px] bg-slate-50 border border-slate-100 hover:bg-emerald-50/30 hover:border-emerald-100 transition-all group"
                                         >
-                                            <div className="h-2 w-2 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
-                                            <span className="text-slate-300 font-medium">{item}</span>
+                                            <div className="h-3 w-3 rounded-full bg-emerald-200 group-hover:bg-primary transition-colors shadow-sm" />
+                                            <span className="text-slate-700 font-bold text-lg">{item}</span>
                                         </motion.div>
                                     ))}
                                 </div>
 
-                                <div className="mt-12 p-8 bg-slate-900/50 rounded-3xl border border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                            <Target className="w-6 h-6" />
+                                <div className="mt-16 p-10 bg-gradient-to-br from-secondary to-slate-800 rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+                                    <div className="flex items-center gap-6 text-left">
+                                        <div className="w-16 h-16 rounded-[24px] bg-white/10 flex items-center justify-center text-primary backdrop-blur-md">
+                                            <Target className="w-8 h-8" />
                                         </div>
                                         <div>
-                                            <div className="text-white font-bold tracking-tight">Set Your First Goal</div>
-                                            <div className="text-slate-500 text-sm">Start your journey to financial freedom today.</div>
+                                            <div className="text-white font-black text-2xl tracking-tight">Set Your First Goal</div>
+                                            <div className="text-slate-300 font-medium italic text-lg opacity-80">Start your journey to financial freedom today.</div>
                                         </div>
                                     </div>
-                                    <button className="px-6 py-3 bg-primary text-white rounded-xl font-bold hover:glow-primary transition-all">
-                                        Try This Feature
+                                    <button className="px-10 py-5 bg-primary hover:bg-primary-dark text-white rounded-2xl font-black text-xl hover:shadow-2xl hover:shadow-primary/30 transition-all active:scale-95">
+                                        Get Started Free
                                     </button>
                                 </div>
                             </motion.div>
