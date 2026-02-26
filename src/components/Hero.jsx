@@ -4,10 +4,10 @@ import { ArrowRight, Play, CheckCircle2 } from 'lucide-react';
 
 const Hero = () => {
     return (
-        <section className="relative pt-32 pb-20 overflow-hidden">
-            {/* Background Glows */}
-            <div className="absolute top-0 right-0 -z-10 w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-blue-500/10 blur-[100px] rounded-full -translate-x-1/2 translate-y-1/2" />
+        <section className="relative pt-32 pb-24 overflow-hidden bg-white">
+            {/* Soft Premium Background Elements */}
+            <div className="absolute top-[-10%] right-[-5%] -z-10 w-[600px] h-[600px] bg-emerald-50 blur-[120px] rounded-full opacity-60" />
+            <div className="absolute bottom-[-10%] left-[-5%] -z-10 w-[500px] h-[500px] bg-indigo-50 blur-[100px] rounded-full opacity-60" />
 
             <div className="container mx-auto px-6">
                 <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
@@ -15,7 +15,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 text-primary text-sm font-semibold mb-8"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-100 text-primary text-sm font-bold mb-8 shadow-sm"
                     >
                         <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
                         Voted #1 Personal Finance Tool 2026
@@ -25,7 +25,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]"
+                        className="text-5xl md:text-8xl font-black tracking-tight mb-8 leading-[1.05] text-secondary"
                     >
                         Take Control of Your Money. <br />
                         <span className="gradient-text">Build Wealth With Confidence.</span>
@@ -35,7 +35,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl"
+                        className="text-lg md:text-2xl text-slate-600 mb-12 leading-relaxed max-w-3xl"
                     >
                         Paisawale is your all-in-one financial operating system to track, plan, grow, and optimize your money — powered by smart tools and AI insights.
                     </motion.p>
@@ -44,40 +44,48 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="flex flex-col sm:flex-row items-center gap-4 mb-12"
+                        className="flex flex-col sm:flex-row items-center gap-5 mb-16"
                     >
-                        <button className="px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-2xl font-bold flex items-center gap-2 transition-all glow-primary shadow-lg shadow-primary/20">
-                            Start Free — Track Your Money in 60s
+                        <button className="px-8 py-4.5 bg-primary hover:bg-primary-dark text-white rounded-2xl font-black text-lg flex items-center gap-2 transition-all shadow-xl shadow-primary/20 hover:shadow-primary/30 active:scale-95">
+                            Start Free — Track in 60s
                             <ArrowRight className="w-5 h-5" />
                         </button>
-                        <button className="px-8 py-4 glass hover:bg-white/5 text-white rounded-2xl font-bold flex items-center gap-2 transition-all border border-white/10">
+                        <button className="px-8 py-4.5 bg-white hover:bg-slate-50 text-secondary rounded-2xl font-bold text-lg flex items-center gap-2 transition-all border border-slate-200 shadow-sm">
                             <Play className="w-5 h-5 text-primary fill-primary" />
                             Explore Free Tools
                         </button>
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.5 }}
-                        className="flex flex-wrap justify-center items-center gap-8 py-6 px-10 glass rounded-3xl border border-white/5"
+                        className="flex flex-wrap justify-center items-center gap-10 py-8 px-12 bg-white rounded-[40px] border border-slate-100 shadow-xl shadow-slate-200/50"
                     >
-                        <div className="flex items-center gap-2 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
-                            <CheckCircle2 className="text-primary w-5 h-5" />
-                            <span className="text-sm font-medium uppercase tracking-widest">Total Clarity</span>
+                        <div className="flex items-center gap-3 group transition-all cursor-default">
+                            <div className="p-1.5 bg-emerald-50 rounded-lg group-hover:bg-emerald-100 transition-colors">
+                                <CheckCircle2 className="text-primary w-5 h-5" />
+                            </div>
+                            <span className="text-sm font-bold uppercase tracking-wider text-slate-700">Total Clarity</span>
                         </div>
-                        <div className="flex items-center gap-2 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
-                            <CheckCircle2 className="text-primary w-5 h-5" />
-                            <span className="text-sm font-medium uppercase tracking-widest">Growth Powered</span>
+                        <div className="flex items-center gap-3 group transition-all cursor-default">
+                            <div className="p-1.5 bg-emerald-50 rounded-lg group-hover:bg-emerald-100 transition-colors">
+                                <CheckCircle2 className="text-primary w-5 h-5" />
+                            </div>
+                            <span className="text-sm font-bold uppercase tracking-wider text-slate-700">Growth Powered</span>
                         </div>
-                        <div className="flex items-center gap-2 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
-                            <CheckCircle2 className="text-primary w-5 h-5" />
-                            <span className="text-sm font-medium uppercase tracking-widest">AI Insights</span>
+                        <div className="flex items-center gap-3 group transition-all cursor-default">
+                            <div className="p-1.5 bg-emerald-50 rounded-lg group-hover:bg-emerald-100 transition-colors">
+                                <CheckCircle2 className="text-primary w-5 h-5" />
+                            </div>
+                            <span className="text-sm font-bold uppercase tracking-wider text-slate-700">AI Insights</span>
                         </div>
                     </motion.div>
 
-                    <p className="mt-8 text-slate-500 text-sm italic font-medium">
-                        Used by individuals who want clarity, control, and financial freedom.
+                    <p className="mt-10 text-slate-400 text-sm font-semibold tracking-wide flex items-center gap-2">
+                        <span className="h-px w-8 bg-slate-200" />
+                        TRUSTED BY 10,000+ USERS WORLDWIDE
+                        <span className="h-px w-8 bg-slate-200" />
                     </p>
                 </div>
             </div>

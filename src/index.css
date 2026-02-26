@@ -1,57 +1,59 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #10b981;
-  --color-primary-dark: #059669;
-  --color-secondary: #f59e0b;
-  --color-accent: #3b82f6;
-  --color-dark: #020617;
-  --color-dark-lighter: #0f172a;
+  --color-primary: #059669;
+  --color-primary-dark: #064e3b;
+  --color-secondary: #0f172a;
+  --color-accent: #4f46e5;
+  --color-bg-light: #f8fafc;
+  --color-surface: #ffffff;
 
   --font-sans: "Outfit", system-ui, sans-serif;
 }
 
 :root {
   font-family: var(--font-sans);
-  background-color: var(--color-dark);
-  color: white;
+  background-color: var(--color-bg-light);
+  color: var(--color-secondary);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: var(--color-bg-light);
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .glass-card {
-  background: rgba(15, 23, 42, 0.6);
+  background: #ffffff;
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
   border-color: var(--color-primary);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #059669 0%, #4f46e5 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .glow-primary {
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.2);
 }
 
 * {
@@ -64,14 +66,19 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-dark);
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #94a3b8;
+}
+
+section {
+  position: relative;
+  z-index: 1;
 }
