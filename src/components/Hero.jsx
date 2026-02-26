@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, ChevronRight, Layout, Shield, PieChart, Sparkles } from 'lucide-react';
+import { ArrowRight, Play, Layout, Shield, PieChart, Sparkles } from 'lucide-react';
 
 const Hero = () => {
     return (
@@ -40,42 +40,34 @@ const Hero = () => {
                         Paisawale is your all-in-one financial operating system to track, plan, grow, and optimize your money — powered by smart tools and AI insights.
                     </motion.p>
 
-                    {/* Search Bar Style CTA */}
+                    {/* CTA Buttons */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="w-full max-w-lg relative group mb-8"
+                        className="flex flex-col sm:flex-row items-center gap-6 mb-12"
                     >
-                        <div className="absolute inset-y-0 left-6 flex items-center text-slate-400 group-focus-within:text-primary transition-colors">
-                            <Search size={20} />
-                        </div>
-                        <input
-                            type="text"
-                            placeholder="What do you want to achieve? e.g. Budgeting, Investing"
-                            className="w-full pl-14 pr-32 py-5 bg-white border border-slate-200 rounded-3xl shadow-xl shadow-slate-100 focus:outline-none focus:border-primary focus:ring-4 focus:ring-emerald-50 transition-all font-medium"
-                        />
-                        <div className="absolute inset-y-2 right-2 flex items-center">
-                            <button className="h-full px-6 bg-primary hover:bg-primary-dark text-white rounded-2xl font-bold transition-all flex items-center gap-2 shadow-lg shadow-emerald-200">
-                                Search <ChevronRight size={18} />
-                            </button>
-                        </div>
+                        <button className="btn-primary px-8 py-5 text-lg shadow-xl shadow-emerald-200">
+                            Start Free — Track Your Money in 60 Seconds
+                            <ArrowRight size={20} />
+                        </button>
+                        <button className="px-8 py-5 rounded-full font-bold text-secondary bg-white border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm">
+                            <Play size={18} className="text-primary fill-primary" />
+                            Explore Free Finance Tools
+                        </button>
                     </motion.div>
 
-                    {/* Tag Suggestions */}
-                    <motion.div
+                    {/* Trust Line */}
+                    <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
-                        className="flex flex-wrap items-center justify-center gap-4 text-xs font-bold uppercase tracking-wider text-slate-400"
+                        className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400 flex items-center gap-3"
                     >
-                        <span>Quick Start:</span>
-                        {['Dashboard', 'Budgeting', 'Tax Audit', 'Wealth Plan', 'AI Chat'].map(tag => (
-                            <button key={tag} className="px-4 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg transition-colors border border-slate-200">
-                                {tag}
-                            </button>
-                        ))}
-                    </motion.div>
+                        <span className="h-px w-8 bg-slate-200" />
+                        Used by individuals who want clarity, control, and financial freedom.
+                        <span className="h-px w-8 bg-slate-200" />
+                    </motion.p>
                 </div>
 
                 {/* Thumbnail Grid below */}
