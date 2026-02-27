@@ -37,7 +37,8 @@ const Hero = () => {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-lg md:text-xl text-slate-500 max-w-2xl font-medium leading-relaxed mb-12"
                     >
-                        Paisawale is your all-in-one financial operating system to track, plan, grow, and optimize your money — powered by smart tools and AI insights.
+                        Paisawale helps you calculate, plan, and understand your finances with simple, powerful tools.
+                        No complexity. No clutter. Just clarity.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -48,12 +49,12 @@ const Hero = () => {
                         className="flex flex-col sm:flex-row items-center gap-6 mb-12"
                     >
                         <button className="btn-primary px-8 py-5 text-lg shadow-xl shadow-emerald-200">
-                            Start Free — Track Your Money in 60 Seconds
+                            Use Free Tools Now
                             <ArrowRight size={20} />
                         </button>
                         <button className="px-8 py-5 rounded-full font-bold text-secondary bg-white border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm">
                             <Play size={18} className="text-primary fill-primary" />
-                            Explore Free Finance Tools
+                            Start With SIP Calculator
                         </button>
                     </motion.div>
 
@@ -65,7 +66,7 @@ const Hero = () => {
                         className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400 flex items-center gap-3"
                     >
                         <span className="h-px w-8 bg-slate-200" />
-                        Used by individuals who want clarity, control, and financial freedom.
+                        Free. Instant. No signup required.
                         <span className="h-px w-8 bg-slate-200" />
                     </motion.p>
                 </div>
