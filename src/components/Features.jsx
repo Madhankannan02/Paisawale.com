@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, ArrowRight, TrendingUp, Landmark, PieChart, Target, Wallet } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Features = () => {
     const featureGroups = [
@@ -137,9 +138,12 @@ const Features = () => {
                                         <p className="text-slate-500 font-medium leading-relaxed mb-10">
                                             {featureGroups[activeIndex].description}
                                         </p>
-                                        <button className="btn-primary">
+                                        <Link
+                                            to={featureGroups[activeIndex].title === "SIP Calculator" ? "/calculators/sip" : "#"}
+                                            className="btn-primary"
+                                        >
                                             Open {featureGroups[activeIndex].title} <ArrowRight size={18} />
-                                        </button>
+                                        </Link>
                                     </div>
 
                                     <div className="space-y-6">

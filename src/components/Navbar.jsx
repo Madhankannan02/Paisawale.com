@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Search, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 
 const Navbar = () => {
@@ -25,9 +26,9 @@ const Navbar = () => {
             }`}>
             <div className="container-tight flex items-center justify-between">
                 {/* Logo */}
-                <div className="flex items-center group cursor-pointer">
+                <Link to="/" className="flex items-center group cursor-pointer">
                     <img src={logo} className="h-10 md:h-12 w-auto transition-transform duration-500 group-hover:scale-105" alt="Paisawale Logo" />
-                </div>
+                </Link>
 
                 {/* Desktop Links (Centered) */}
                 <div className="hidden lg:flex items-center gap-10">

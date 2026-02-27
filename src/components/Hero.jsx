@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Layout, Shield, PieChart, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
@@ -52,10 +53,10 @@ const Hero = () => {
                             Use Free Tools Now
                             <ArrowRight size={20} />
                         </button>
-                        <button className="px-8 py-5 rounded-full font-bold text-secondary bg-white border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm">
+                        <Link to="/calculators/sip" className="px-8 py-5 rounded-full font-bold text-secondary bg-white border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm">
                             <Play size={18} className="text-primary fill-primary" />
                             Start With SIP Calculator
-                        </button>
+                        </Link>
                     </motion.div>
 
                     {/* Trust Line */}
