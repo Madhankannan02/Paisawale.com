@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
-import About from './components/About';
 import Features from './components/Features';
 import Footer from './components/Footer';
 import { motion } from 'framer-motion';
@@ -21,8 +20,6 @@ function App() {
         </div>
 
         <Problem />
-
-        <About />
 
         <Features />
 

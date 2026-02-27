@@ -25,10 +25,10 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-4xl md:text-6xl leading-[1.05] font-display font-bold tracking-tight text-secondary mb-8"
+                        className="text-4xl md:text-6xl leading-[1.2] font-display font-bold tracking-tight text-secondary mb-8 py-2"
                     >
                         Take Control of Your Money. <br />
-                        <span className="gradient-text italic">Build Wealth With Confidence.</span>
+                        <span className="gradient-text italic inline-block pr-4">Build Wealth With Confidence.</span>
                     </motion.h1>
 
                     <motion.p

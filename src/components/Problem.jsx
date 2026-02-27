@@ -21,8 +21,8 @@ const Problem = () => {
                     <div className="lg:col-span-5">
                         <div className="sticky top-32">
                             <span className="section-label mb-6">Financial Friction</span>
-                            <h2 className="text-4xl md:text-6xl font-display font-bold text-secondary mb-8 leading-[1.1]">
-                                Managing money shouldn’t feel <span className="gradient-text italic">stressful.</span>
+                            <h2 className="text-4xl md:text-6xl font-display font-bold text-secondary mb-8 leading-[1.2] py-2">
+                                Managing money shouldn’t feel <span className="gradient-text italic inline-block pr-4">stressful.</span>
                             </h2>
                             <p className="text-slate-500 text-lg font-medium leading-relaxed mb-10 max-w-sm">
                                 Most people today struggle with fragmented tools and total lack of clarity. We solve the structural chaos.
